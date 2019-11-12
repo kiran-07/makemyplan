@@ -28,10 +28,10 @@ pipeline {
 			      withDockerRegistry([credentialsId:'ecr:ap-south-1:makemyplan-ecr', url:"https://118421764102.dkr.ecr.ap-south-1.amazonaws.com/makemyplan"]){
                   sh """
 				  echo "Tagging the Docker Image: In Progress"
-				  docker tag makemyplanone:latest 340866772701.dkr.ecr.ap-south-1.amazonaws.com/makemyplanone:1.0.1
+				  docker tag makemyplanone:latest 118421764102.dkr.ecr.ap-south-1.amazonaws.com/makemyplan:1.0.1
 				  echo "Tagging the Docker Image: Completed"
 				  echo "Push Docker Image to ECR : In Progress"
-				  docker push 340866772701.dkr.ecr.ap-south-1.amazonaws.com/makemyplanone:1.0.1
+				  docker push 118421764102.dkr.ecr.ap-south-1.amazonaws.com/makemyplan:1.0.1
 				  echo "Push Docker Image to ECR : Completed"
 				  """
 				  }
