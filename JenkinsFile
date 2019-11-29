@@ -25,7 +25,7 @@ pipeline {
          stage('Upload Docker Image to Dockerhub') {
                      steps {
          			   script {
-         			      withDockerRegistry([credentialsId:'dockerhub-credentials', url:"kiranrwani/makemyplan"]){
+         			      withDockerRegistry([credentialsId:'dockerhub-credentials', url:"https://kiranrwani/makemyplan"]){
                            sh """
          				  echo "Tagging the Docker Image: In Progress"
          				  docker tag makemyplanone:latest kiranrwani/makemyplan:1.0.1
