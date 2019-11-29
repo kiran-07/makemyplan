@@ -22,6 +22,22 @@ pipeline {
            }
          }
 
+         stage('Upload Docker Image to Dockerhub') {
+                     steps {
+         			   script {
+         			      withDockerRegistry([credentialsId:'dockerhub-credentials', url:"kiranrwani/makemyplan"]){
+                           sh """
+         				  echo "Tagging the Docker Image: In Progress"
+         				  docker tag makemyplanone:latest kiranrwani/makemyplan:1.0.1
+         				  echo "Tagging the Docker Image: Completed"
+         				  echo "Push Docker Image to ECR : In Progress"
+         				  docker push kiranrwani/makemyplan:1.0.1
+         				  echo "Push Docker Image to ECR : Completed"
+         				  """
+         				  }
+                         }
+                     }
+
         stage('Upload Docker Image to AWS ECR') {
             steps {
 			   script {
