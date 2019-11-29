@@ -3,6 +3,9 @@ pipeline {
     options {
         buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
     }
+    environment {
+        DOCKER_HOST="tcp://172.31.13.141:2375"
+    }
     agent any
 
     tools {
